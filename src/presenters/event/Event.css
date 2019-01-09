@@ -1,0 +1,11 @@
+.event {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
+.event > h2 {
+  margin: 1em;
+}

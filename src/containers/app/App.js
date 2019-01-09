@@ -5,19 +5,28 @@ import PropTypes from 'prop-types';
 import Redux from './redux';
 import './App.css';
 
+import EventConsumer from '../../presenters/event-consumer';
+
 class App extends Component {
   componentDidMount() {
     this.props.fetchLiveFootballEvents();
   }
 
   render() {
+    const { events } = this.props;
+
     return (
       <div className='app'>
         <div className='header'>
           <h1>SkyBet</h1>
         </div>
-        <div className='events'>
+        <div className='options'>
+          <div className='odds-toggle'>
+            <input type='checkbox' />
+            <span>{'Fractional Odds'}</span>
+          </div>
         </div>
+        <EventConsumer data={events} />
       </div>
     );
   }
