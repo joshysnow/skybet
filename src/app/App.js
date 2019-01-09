@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import Redux from './redux';
 import './App.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchLiveFootballEvents();
+  }
+
   render() {
     return (
       <div className='app'>
@@ -15,4 +23,8 @@ class App extends Component {
   }
 }
 
-export default App;
+App.propTypes = {
+  events: PropTypes.array.isRequired
+};
+
+export default connect(Redux.mapStateToProps, Redux.mapDispatchToProps)(App);
