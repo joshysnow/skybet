@@ -1,3 +1,13 @@
 .app {
+  display: flex;
+  flex-direction: column;
+}
 
+.header {
+  text-align: center;
+  background-color: #251F4D;
+}
+
+.header > h1 {
+  color: white;
 }
