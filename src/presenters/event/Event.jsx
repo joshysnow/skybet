@@ -15,7 +15,6 @@ class Event extends PureComponent {
 }
 
 Event.propTypes = {
-  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired
 };
 

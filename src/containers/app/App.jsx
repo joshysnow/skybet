@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Redux from './redux';
 import './App.css';
 
-import EventConsumer from '../../presenters/event-consumer';
+import EventsContainer from '../events';
 
 class App extends Component {
   componentDidMount() {
@@ -26,7 +26,7 @@ class App extends Component {
             <span>{'Fractional Odds'}</span>
           </div>
         </div>
-        <EventConsumer data={events} />
+        <EventsContainer events={events} />
       </div>
     );
   }
