@@ -19,8 +19,18 @@ class EventsContainer extends Component {
   }
 
   renderEvents = () => {
-    const { events } = this.props;
-    return events.map((event) => <Event key={`${event.eventId}`} name={event.name} />);
+    const { events, eventDetails } = this.props;
+
+    return events.map((event) => {
+      const info = eventDetails.filter(info => info.event.eventId === event.eventId);
+      if (info) console.log(info);
+      const markets = (info !== undefined && info.length > 0) ? info[0].markets[event.eventId] : undefined;
+      const outcomes = (info !== undefined && info.length > 0) ? info[0].outcomes : undefined;
+
+      return (
+        <Event key={`${event.eventId}`} name={event.name} markets={markets} outcomes={outcomes} />
+      );
+    });
   };
 
   render() {
