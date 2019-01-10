@@ -19,16 +19,16 @@ class EventsContainer extends Component {
   }
 
   renderEvents = () => {
-    const { events, eventDetails } = this.props;
+    const { events, eventDetails, showFractions } = this.props;
+    if (eventDetails) console.log(eventDetails);
 
     return events.map((event) => {
       const info = eventDetails.filter(info => info.event.eventId === event.eventId);
-      if (info) console.log(info);
       const markets = (info !== undefined && info.length > 0) ? info[0].markets[event.eventId] : undefined;
       const outcomes = (info !== undefined && info.length > 0) ? info[0].outcomes : undefined;
 
       return (
-        <Event key={`${event.eventId}`} name={event.name} markets={markets} outcomes={outcomes} />
+        <Event key={`${event.eventId}`} name={event.name} markets={markets} outcomes={outcomes} showFractions={showFractions} />
       );
     });
   };
@@ -45,7 +45,7 @@ class EventsContainer extends Component {
 EventsContainer.propTypes = {
   events: PropTypes.array.isRequired,
   eventDetails: PropTypes.array.isRequired,
-  useFractionals: PropTypes.bool
+  showFractions: PropTypes.bool
 };
 
 export default connect(Redux.mapStateToProps, Redux.mapDispatchToProps)(EventsContainer);

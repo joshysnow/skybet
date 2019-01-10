@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './Event.css';
 
 class Event extends PureComponent {
-  renderMarketPrice = (outcome) => <p>{outcome ? outcome.price.decimal : '-'}</p>;
+  renderMarketPrice = (outcome) => <p>{outcome ? this.props.showFractions ? `${outcome.price.num}/${outcome.price.den}` : outcome.price.decimal : '-'}</p>;
 
   renderPrimaryMarket = () => {
     const { markets, outcomes } = this.props;
@@ -12,12 +12,10 @@ class Event extends PureComponent {
 
     const primaryMarkets = markets.filter(market => market.type === 'win-draw-win');
     if (!primaryMarkets || primaryMarkets.length === 0) return;
-    console.log(primaryMarkets);
 
     const market = primaryMarkets[0];
     const marketOutcomes = outcomes[market.marketId];
 
-    console.log(marketOutcomes);
     const homeOutcome = marketOutcomes.find(outcome => outcome.type === 'home');
     const drawOutcome = marketOutcomes.find(outcome => outcome.type === 'draw');
     const awayOutcome = marketOutcomes.find(outcome => outcome.type === 'away');

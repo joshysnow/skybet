@@ -12,3 +12,11 @@
 .header > h1 {
   color: white;
 }
+
+.options {
+  margin: 1em;
+}
+
+.toggle__fractions {
+  display: flex;
+}

@@ -8,25 +8,36 @@ import './App.css';
 import EventsContainer from '../events';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      checkedFractions: false
+    };
+  }
+
   componentDidMount() {
     this.props.fetchLiveFootballEvents();
   }
 
+  onCheck = () => {
+    this.setState({checkedFractions: !this.state.checkedFractions});
+  };
+
   render() {
     const { events } = this.props;
-
+    if (events) console.log(events);
     return (
       <div className='app'>
         <div className='header'>
           <h1>SkyBet</h1>
         </div>
         <div className='options'>
-          <div className='odds-toggle'>
-            <input type='checkbox' />
-            <span>{'Fractional Odds'}</span>
+          <div className='toggle__fractions'>
+            <input type='checkbox' defaultChecked={this.state.checkedFractions} onChange={this.onCheck} />
+            <span>{'Show as Fractions'}</span>
           </div>
         </div>
-        <EventsContainer events={events} />
+        <EventsContainer events={events} showFractions={this.state.checkedFractions} />
       </div>
     );
   }

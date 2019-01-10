@@ -3,7 +3,6 @@ import fetch from 'cross-fetch';
 export const RECEIVED_EVENTS = 'app/received_events';
 const receivedEvents = (data) => {
   const events = data ? data.events : [];
-    console.log(events);
   return {
     type: RECEIVED_EVENTS,
     events
