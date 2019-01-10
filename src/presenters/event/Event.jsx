@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import './Event.css';
 
 class Event extends PureComponent {
+  renderMarketPrice = (outcome) => <p>{outcome ? outcome.price.decimal : '-'}</p>;
+
   renderPrimaryMarket = () => {
     const { markets, outcomes } = this.props;
     if (!markets || !outcomes) return;
@@ -24,15 +26,15 @@ class Event extends PureComponent {
       <div className='event-market'>
         <div className='event-market__col'>
           <h3>WIN</h3>
-          {homeOutcome && <p>{homeOutcome.price.decimal}</p>}
+          {this.renderMarketPrice(homeOutcome)}
         </div>
         <div className='event-market__col'>
           <h3>DRAW</h3>
-          {drawOutcome && <p>{drawOutcome.price.decimal}</p>}
+          {this.renderMarketPrice(drawOutcome)}
         </div>
         <div className='event-market__col'>
           <h3>WIN</h3>
-          {awayOutcome && <p>{awayOutcome.price.decimal}</p>}
+          {this.renderMarketPrice(awayOutcome)}
         </div>
       </div>
     );
