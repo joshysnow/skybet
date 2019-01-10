@@ -34,7 +34,7 @@ class App extends Component {
         <div className='options'>
           <div className='toggle__fractions'>
             <input type='checkbox' checked={this.state.checkedFractions} onChange={this.onCheck} />
-            <span>{'Show as Fractions'}</span>
+            <span>{'Show Fractions'}</span>
           </div>
         </div>
         <EventsContainer events={events} showFractions={this.state.checkedFractions} />

@@ -17,6 +17,14 @@
   justify-content: space-between;
 }
 
+.event__header__button {
+  width: 100px;
+  height: 40px;
+  background-color: #251F4D;
+  color: white;
+  font-family: Verdana;
+}
+
 .event-market {
   display: flex;
   justify-content: space-evenly;

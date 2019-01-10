@@ -56,7 +56,7 @@ class Event extends PureComponent {
       <div className='event'>
         <div className='event__header'>
           <h2>{name}</h2>
-          <button type='button' onClick={this.onShowMarketClick}>
+          <button className='event__header__button' type='button' onClick={this.onShowMarketClick}>
             {this.state.showMarket ? 'Hide Market' : 'Show Market'}
           </button>
         </div>
