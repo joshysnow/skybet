@@ -20,7 +20,6 @@ class EventsContainer extends Component {
 
   renderEvents = () => {
     const { events, eventDetails, showFractions } = this.props;
-    if (eventDetails) console.log(eventDetails);
 
     return events.map((event) => {
       const info = eventDetails.filter(info => info.event.eventId === event.eventId);
