@@ -11,7 +11,7 @@ class Event extends PureComponent {
     };
   }
 
-  renderMarketPrice = (outcome) => <p>{outcome ? this.props.showFractions ? `${outcome.price.num}/${outcome.price.den}` : outcome.price.decimal : '-'}</p>;
+  renderMarketPrice = (outcome) => <p>{outcome ? this.props.showFractions ? `${price.num}/${price.den}` : outcome.price.decimal : '-'}</p>;
 
   renderPrimaryMarket = () => {
     const { markets, outcomes } = this.props;
@@ -45,7 +45,7 @@ class Event extends PureComponent {
     );
   };
 
-  onShowMarketClick = (evt) => {
+  onShowMarketClick = () => {
     this.setState({showMarket: !this.state.showMarket});
   };
 

@@ -19,7 +19,7 @@ class App extends Component {
     this.props.fetchLiveFootballEvents();
   }
 
-  onCheck = (evt) => {
+  onCheck = () => {
     this.setState({checkedFractions: !this.state.checkedFractions});
   };
 
