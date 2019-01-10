@@ -19,13 +19,13 @@ class App extends Component {
     this.props.fetchLiveFootballEvents();
   }
 
-  onCheck = () => {
+  onCheck = (evt) => {
     this.setState({checkedFractions: !this.state.checkedFractions});
   };
 
   render() {
     const { events } = this.props;
-    if (events) console.log(events);
+
     return (
       <div className='app'>
         <div className='header'>
@@ -33,7 +33,7 @@ class App extends Component {
         </div>
         <div className='options'>
           <div className='toggle__fractions'>
-            <input type='checkbox' defaultChecked={this.state.checkedFractions} onChange={this.onCheck} />
+            <input type='checkbox' checked={this.state.checkedFractions} onChange={this.onCheck} />
             <span>{'Show as Fractions'}</span>
           </div>
         </div>

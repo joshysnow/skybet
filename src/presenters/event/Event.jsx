@@ -4,6 +4,13 @@ import PropTypes from 'prop-types';
 import './Event.css';
 
 class Event extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showMarket: false
+    };
+  }
+
   renderMarketPrice = (outcome) => <p>{outcome ? this.props.showFractions ? `${outcome.price.num}/${outcome.price.den}` : outcome.price.decimal : '-'}</p>;
 
   renderPrimaryMarket = () => {
@@ -38,13 +45,22 @@ class Event extends PureComponent {
     );
   };
 
+  onShowMarketClick = (evt) => {
+    this.setState({showMarket: !this.state.showMarket});
+  };
+
   render() {
     const { name } = this.props;
 
     return (
       <div className='event'>
-        <h2>{name}</h2>
-        {this.renderPrimaryMarket()}
+        <div className='event__header'>
+          <h2>{name}</h2>
+          <button type='button' onClick={this.onShowMarketClick}>
+            {this.state.showMarket ? 'Hide Market' : 'Show Market'}
+          </button>
+        </div>
+        {this.state.showMarket && this.renderPrimaryMarket()}
       </div>
     );
   }

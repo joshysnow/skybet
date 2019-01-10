@@ -7,9 +7,14 @@
   border-radius: 4px;
 }
 
-.event > h2 {
+.event__header > h2 {
   margin: 0;
   margin-bottom: .5em;
+}
+
+.event__header {
+  display: flex;
+  justify-content: space-between;
 }
 
 .event-market {
