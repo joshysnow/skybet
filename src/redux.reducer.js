@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import { Reducer } from './containers/app/redux';
+import * as App from './containers/app/redux';
+import * as Events from './containers/events/redux';
 
 export default combineReducers({
-  app: Reducer
+  app: App.Reducer,
+  events: Events.Reducer
 });

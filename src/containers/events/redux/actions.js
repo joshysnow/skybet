@@ -4,17 +4,17 @@ export const RECEIVED_EVENT_INFO = 'eventcontainer/received_event_info';
 const receivedEventInfo = (info) => {
   return {
     type: RECEIVED_EVENT_INFO,
-    info: Object.assign({}, info);
-  }
+    info
+  };
 };
 
 export function fetchEventInfo(id) {
   return dispatch => {
-    return fetch(`http://localhost:8888/event/${id}`)
+    return fetch(`http://localhost:8888/sportsbook/event/${id}`)
       .then(
         response => response.json(),
         error => console.log(error)
       )
-      .then(json => dispatch(receivedEvents(json)));
+      .then(json => dispatch(receivedEventInfo(json)));
   };
 }

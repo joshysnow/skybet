@@ -10,7 +10,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         events: action.events
-      }
+      };
     default:
       return state;
   }
