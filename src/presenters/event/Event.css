@@ -3,7 +3,6 @@
   flex-direction: column;
   margin: 1rem;
   padding: .5em;
-  border: 1px solid grey;
   border-radius: 4px;
 }
 
@@ -18,11 +17,17 @@
 }
 
 .event__header__button {
-  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
   height: 40px;
-  background-color: #251F4D;
+  padding: 4px;
+  background-color: #3286DF;
+  font-weight: bold;
   color: white;
-  font-family: Verdana;
+  border: none;
+  cursor: pointer;
 }
 
 .event-market {

@@ -11,7 +11,7 @@ class Event extends PureComponent {
     };
   }
 
-  renderMarketPrice = (outcome) => <p>{outcome ? this.props.showFractions ? `${outcome.price.num}/${outcome.price.den}` : outcome.price.decimal : '-'}</p>;
+  renderMarketPrice = (outcome) => <p>{outcome ? this.props.showFractions ? `${outcome.price.num}/${outcome.price.den}` : Number(outcome.price.decimal).toFixed(2) : '-'}</p>;
 
   renderPrimaryMarket = () => {
     const { markets, outcomes } = this.props;
@@ -51,14 +51,15 @@ class Event extends PureComponent {
 
   render() {
     const { name } = this.props;
+    const { showMarket } = this.state;
 
     return (
       <div className='event'>
         <div className='event__header'>
           <h2>{name}</h2>
-          <button className='event__header__button' type='button' onClick={this.onShowMarketClick}>
-            {this.state.showMarket ? 'Hide Market' : 'Show Market'}
-          </button>
+          <div className='event__header__button' type='button' onClick={this.onShowMarketClick}>
+            {showMarket ? 'Hide Market' : 'Show Market'}
+          </div>
         </div>
         {this.state.showMarket && this.renderPrimaryMarket()}
       </div>

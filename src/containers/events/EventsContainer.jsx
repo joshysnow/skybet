@@ -11,7 +11,7 @@ class EventsContainer extends Component {
     const { events, fetchEventInfo } = this.props;
     const oldEvents = oldProps.events;
 
-    if (oldEvents.length !== events.length){
+    if (oldEvents.length !== events.length) {
       for (let event of events) {
         fetchEventInfo(event.eventId);
       }
@@ -44,7 +44,8 @@ class EventsContainer extends Component {
 EventsContainer.propTypes = {
   events: PropTypes.array.isRequired,
   eventDetails: PropTypes.array.isRequired,
-  showFractions: PropTypes.bool
+  showFractions: PropTypes.bool,
+  fetchEventInfo: PropTypes.func.isRequired
 };
 
 export default connect(Redux.mapStateToProps, Redux.mapDispatchToProps)(EventsContainer);

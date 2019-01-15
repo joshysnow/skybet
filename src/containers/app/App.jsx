@@ -34,7 +34,7 @@ class App extends Component {
         <div className='options'>
           <div className='toggle__fractions'>
             <input type='checkbox' checked={this.state.checkedFractions} onChange={this.onCheck} />
-            <span>{'Show Fractions'}</span>
+            <span>{'Fractions'}</span>
           </div>
         </div>
         <EventsContainer events={events} showFractions={this.state.checkedFractions} />
@@ -44,7 +44,8 @@ class App extends Component {
 }
 
 App.propTypes = {
-  events: PropTypes.array.isRequired
+  events: PropTypes.array.isRequired,
+  fetchLiveFootballEvents: PropTypes.func.isRequired
 };
 
 export default connect(Redux.mapStateToProps, Redux.mapDispatchToProps)(App);
