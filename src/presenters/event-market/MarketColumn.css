@@ -1,0 +1,14 @@
+.market__col {
+  display: flex;
+  align-items: center;
+}
+
+.market__col > h3,
+.market__col > p {
+  padding: .25em;
+}
+
+.market__col > h3,
+.market__col > p {
+  margin: 0;
+}

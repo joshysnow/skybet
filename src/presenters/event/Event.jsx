@@ -1,7 +1,8 @@
+import './Event.css';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import './Event.css';
+import  EventMarket, { MarketColumn } from '../event-market';
 
 class Event extends PureComponent {
   constructor(props) {
@@ -11,7 +12,7 @@ class Event extends PureComponent {
     };
   }
 
-  renderMarketPrice = (outcome) => <p>{outcome ? this.props.showFractions ? `${outcome.price.num}/${outcome.price.den}` : Number(outcome.price.decimal).toFixed(2) : '-'}</p>;
+  renderMarketPrice = (outcome) => outcome ? this.props.showFractions ? `${outcome.price.num}/${outcome.price.den}` : Number(outcome.price.decimal).toFixed(2) : '';
 
   renderPrimaryMarket = () => {
     const { markets, outcomes } = this.props;
@@ -28,20 +29,11 @@ class Event extends PureComponent {
     const awayOutcome = marketOutcomes.find(outcome => outcome.type === 'away');
 
     return (
-      <div className='event-market'>
-        <div className='event-market__col'>
-          <h3>WIN</h3>
-          {this.renderMarketPrice(homeOutcome)}
-        </div>
-        <div className='event-market__col'>
-          <h3>DRAW</h3>
-          {this.renderMarketPrice(drawOutcome)}
-        </div>
-        <div className='event-market__col'>
-          <h3>WIN</h3>
-          {this.renderMarketPrice(awayOutcome)}
-        </div>
-      </div>
+      <EventMarket>
+        <MarketColumn title={homeOutcome ? 'WIN': '-'} price={this.renderMarketPrice(homeOutcome)} />
+        <MarketColumn title={drawOutcome ? 'DRAW': '-'} price={this.renderMarketPrice(drawOutcome)} />
+        <MarketColumn title={awayOutcome ? 'WIN': '-'} price={this.renderMarketPrice(awayOutcome)} />
+      </EventMarket>
     );
   };
 

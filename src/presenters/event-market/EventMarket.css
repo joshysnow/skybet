@@ -1,0 +1,5 @@
+.event-market {
+  display: flex;
+  justify-content: space-evenly;
+  margin: .5em;
+}

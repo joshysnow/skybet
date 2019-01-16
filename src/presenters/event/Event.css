@@ -29,24 +29,3 @@
   border: none;
   cursor: pointer;
 }
-
-.event-market {
-  display: flex;
-  justify-content: space-evenly;
-  margin: .5em;
-}
-
-.event-market__col {
-  display: flex;
-  align-items: center;
-}
-
-.event-market__col > h3,
-.event-market__col > p {
-  padding: .25em;
-}
-
-.event-market__col > h3,
-.event-market__col > p {
-  margin: 0;
-}
