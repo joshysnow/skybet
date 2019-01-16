@@ -1,0 +1,11 @@
+.options {
+  margin: 1em;
+}
+
+.toggle__fractions {
+  display: flex;
+}
+
+.toggle__fractions > p {
+  margin: 0;
+}

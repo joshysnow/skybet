@@ -1,7 +1,8 @@
 import * as Actions from './actions';
 
 const initialState = {
-  events: []
+  events: [],
+  useFractions: false
 };
 
 export default (state = initialState, action) => {
@@ -10,6 +11,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         events: action.events
+      };
+    case Actions.TOGGLE_FRACTIONS:
+      return {
+        ...state,
+        useFractions: !state.useFractions
       };
     default:
       return state;

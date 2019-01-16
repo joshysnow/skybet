@@ -1,27 +1,16 @@
+import './App.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Redux from './redux';
-import './App.css';
-
 import EventsContainer from '../events';
+import Options from '../../presenters/options'
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      checkedFractions: false
-    };
-  }
-
   componentDidMount() {
     this.props.fetchLiveFootballEvents();
   }
-
-  onCheck = () => {
-    this.setState({checkedFractions: !this.state.checkedFractions});
-  };
 
   render() {
     const { events } = this.props;
@@ -31,21 +20,18 @@ class App extends Component {
         <div className='header'>
           <h1>SkyBet</h1>
         </div>
-        <div className='options'>
-          <div className='toggle__fractions'>
-            <input type='checkbox' checked={this.state.checkedFractions} onChange={this.onCheck} />
-            <span>{'Fractions'}</span>
-          </div>
-        </div>
-        <EventsContainer events={events} showFractions={this.state.checkedFractions} />
+        <Options checkFractions={this.props.useFractions} onOptionChange={this.props.toggleFractions} />
+        <EventsContainer events={events} showFractions={this.props.useFractions} />
       </div>
     );
   }
 }
 
 App.propTypes = {
+  useFractions: PropTypes.bool.isRequired,
   events: PropTypes.array.isRequired,
-  fetchLiveFootballEvents: PropTypes.func.isRequired
+  fetchLiveFootballEvents: PropTypes.func.isRequired,
+  toggleFractions: PropTypes.func.isRequired
 };
 
 export default connect(Redux.mapStateToProps, Redux.mapDispatchToProps)(App);

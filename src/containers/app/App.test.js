@@ -13,7 +13,8 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   const store = mockStore({
     app: {
-      events: []
+      events: [],
+      useFractions: false
     },
     events: {
       eventDetails: []

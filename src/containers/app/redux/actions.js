@@ -9,6 +9,13 @@ const receivedEvents = (data) => {
   };
 };
 
+export const TOGGLE_FRACTIONS = 'app/toggle_fractions';
+export function toggleFractions() {
+  return {
+    type: TOGGLE_FRACTIONS
+  };
+}
+
 export function fetchLiveFootballEvents() {
   return dispatch => {
     return fetch('http://localhost:8888/football/live')
